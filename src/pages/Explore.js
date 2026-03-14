@@ -1,4 +1,4 @@
-import React, { useState, useCallback } from 'react';
+import React, { useState } from 'react';
 import { userApi, postApi } from '../api/services';
 import PostCard from '../components/posts/PostCard';
 import CollaborationModal from '../components/collaboration/CollaborationModal';

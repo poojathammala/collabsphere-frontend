@@ -4,7 +4,7 @@ import { postApi, commentApi } from '../api/services';
 import { useAuth } from '../context/AuthContext';
 import CollaborationModal from '../components/collaboration/CollaborationModal';
 import { formatDistanceToNow } from 'date-fns';
-import { FiHeart, FiSend, FiTrash2, FiArrowLeft, FiUsers, FiEdit2 } from 'react-icons/fi';
+import { FiHeart, FiSend, FiTrash2, FiArrowLeft, FiUsers } from 'react-icons/fi';
 import toast from 'react-hot-toast';
 import styles from './PostDetail.module.css';
 
@@ -45,7 +45,7 @@ const PostDetail = () => {
       }
     };
     fetchData();
-  }, [id]);
+  }, [id, navigate]);
 
   const handleLike = async () => {
     if (liked) return;

@@ -1,8 +1,8 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useCallback } from 'react';
 import { postApi } from '../api/services';
 import PostCard from '../components/posts/PostCard';
 import CollaborationModal from '../components/collaboration/CollaborationModal';
-import { FiFilter, FiRefreshCw } from 'react-icons/fi';
+import { FiRefreshCw } from 'react-icons/fi';
 import styles from './Feed.module.css';
 
 const TYPES = ['ALL', 'PROJECT', 'SKILL_SHARE', 'HELP_REQUEST', 'MENTORSHIP'];
@@ -17,7 +17,7 @@ const Feed = () => {
   const [activeType, setActiveType] = useState('ALL');
   const [selectedPost, setSelectedPost] = useState(null);
 
-  const fetchPosts = async () => {
+  const fetchPosts = useCallback(async () => {
     setLoading(true);
     try {
       let data;
@@ -31,9 +31,9 @@ const Feed = () => {
       setPosts(data);
     } catch { setPosts([]); }
     finally { setLoading(false); }
-  };
+  }, [activeType]);
 
-  useEffect(() => { fetchPosts(); }, [activeType]);
+  useEffect(() => { fetchPosts(); }, [fetchPosts]);
 
   return (
     <div className={styles.page}>

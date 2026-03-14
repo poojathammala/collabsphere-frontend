@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { Link, useNavigate, useLocation } from 'react-router-dom';
 import { useAuth } from '../../context/AuthContext';
 import {
-  FiHome, FiSearch, FiPlusCircle, FiUser, FiBell,
+  FiHome, FiSearch, FiPlusCircle, FiUser,
   FiLogOut, FiMenu, FiX, FiLayers
 } from 'react-icons/fi';
 import styles from './Navbar.module.css';
